@@ -1,0 +1,51 @@
+<!-- app/views/dashboard/index.html.erb -->
+<div class="bg-black min-h-screen text-white font-sans">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-6 bg-gray-900 border-b border-gray-700">
+    <h1 class="text-green-500 text-3xl font-bold">H4CK4RLOGS</h1>
+    <div class="space-x-6">
+      <a href="#" class="text-white">Dashboard</a>
+      <span class="text-gray-400">|</span>
+      <span>Ezra ▼</span>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="p-6">
+    <h2 class="text-2xl font-semibold">Dashboard</h2>
+
+    <!-- Balance Box -->
+    <div class="bg-gray-800 p-6 mt-4 rounded-lg flex justify-between items-center">
+      <div>
+        <p class="text-gray-400 uppercase">Your Balance</p>
+        <h3 class="text-4xl font-bold">$0</h3>
+      </div>
+      <div class="flex space-x-4">
+        <button class="bg-green-500 text-white px-4 py-2 rounded">ADD BALANCE</button>
+        <button class="bg-gray-300 text-black px-4 py-2 rounded">HISTORY</button>
+      </div>
+    </div>
+
+    <!-- Search & Filters -->
+    <div class="mt-6 flex space-x-4">
+      <input type="text" placeholder="Search for product..." class="w-full p-2 bg-gray-700 rounded text-white">
+      <button class="bg-green-500 px-4 py-2 rounded">Product Title</button>
+      <select class="bg-gray-700 text-white px-4 py-2 rounded">
+        <option>All</option>
+        <option>Bank</option>
+        <option>Crypto</option>
+      </select>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-4 gap-4 mt-6">
+      <% @products.each do |product| %>
+        <div class="bg-gray-900 p-4 rounded-lg text-center border border-gray-700">
+          <img src="<%= product.image_url %>" class="w-full h-32 object-cover rounded">
+          <h3 class="mt-2 text-lg font-semibold"><%= product.title %></h3>
+          <button class="bg-green-500 text-white px-4 py-2 mt-2 rounded">VIEW</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
