@@ -7,9 +7,3 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Product.create([
-  { title: "Bank Of America", image_url: "bank_of_america.png" },
-  { title: "Suntrust Bank", image_url: "suntrust.png" },
-  { title: "Chase Bank", image_url: "chase.png" },
-  { title: "Wells Fargo Bank", image_url: "wells_fargo.png" }
-])

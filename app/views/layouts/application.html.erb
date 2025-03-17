@@ -10,22 +10,24 @@
 </head>
   </head>
 
-  <body>
+  <body class="bg-gray-900 text-white">
+  <div class="container mx-auto min-h-screen px-4">
+    <%= yield %>
 
   <nav>
     <%= link_to "Home", root_path %> |
     <%= link_to "All Posts", posts_path %> |
     <% if user_signed_in? %>
       <%= link_to "New Post", new_post_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to log out?" } %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+
     <% else %>
       <%= link_to "Login", new_user_session_path %> |
       <%= link_to "Sign Up", new_user_registration_path %>
     <% end %>
   </nav>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+</div>
   </body>
 </html>
 
